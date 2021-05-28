@@ -26,6 +26,6 @@ class NewsRemoteDataSourceImpl(
         fun JsonDataException.getCause(): Throwable {
             return (cause as? JsonDataException)?.getCause() ?: cause ?: this
         }
-        throw j.getCause
+        throw j.getCause()
     }
 }
