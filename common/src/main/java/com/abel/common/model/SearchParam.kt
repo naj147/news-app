@@ -12,7 +12,7 @@ data class SearchParam(
 enum class SortType(sort: String) {
     POPULARITY("popularity"),
     RELEVANCY("relevancy"),
-    PUBLISHEDAT("publishedAt");
+    PUBLISHED_AT("publishedAt");
 
     companion object {
         fun from(findValue: String): SortType =

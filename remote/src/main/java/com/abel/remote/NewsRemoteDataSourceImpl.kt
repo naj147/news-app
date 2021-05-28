@@ -13,13 +13,29 @@ class NewsRemoteDataSourceImpl(
 ) : NewsRemoteDataSource {
     override suspend fun getNewsWithCategory(
         searchParam: SearchParam
-    ): PageOfNews = try {
-        withContext(ioContext) {
+    ): PageOfNews =
+        serviceFunc({
             newsService.fetchNewsByCategory(
-                searchParam.query,
-                searchParam.category,
-                searchParam.page
+                it.query,
+                it.category,
+                it.page
             ).ToPageOfNews(searchParam.page)
+        }, searchParam)
+
+
+    override suspend fun getLatestNews(searchParam: SearchParam): PageOfNews =
+        serviceFunc({
+            newsService.fetchNewsBySortParam(
+                it.sortType.toString(), it.page
+            ).ToPageOfNews(searchParam.page)
+        }, searchParam)
+
+    private suspend fun serviceFunc(
+        fn: suspend (search: SearchParam) -> PageOfNews,
+        searchParam: SearchParam
+    ) = try {
+        withContext(ioContext) {
+            fn(searchParam)
         }
     } catch (j: JsonDataException) {
         // Moshi can double wrap JsonDataException

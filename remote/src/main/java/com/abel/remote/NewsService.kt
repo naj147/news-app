@@ -19,6 +19,7 @@ interface NewsService {
     //Fetching news  either by popularity or by newest first
     @GET(EVERYTHING_URL)
     suspend fun fetchNewsBySortParam(
-        @Query("sortBy") sort: String
+        @Query("sortBy") sort: String,
+        @Query("page") page: Int?
     ): NewsRemoteModel
 }

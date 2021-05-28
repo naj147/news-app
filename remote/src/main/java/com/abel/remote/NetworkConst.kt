@@ -1,6 +1,7 @@
 package com.abel.remote
 
 object NetworkConst {
+    const val BASE_URL = "https://newsapi.org/v2/"
     const val TOP_HEADLINES_URL ="top-headlines"
     const val EVERYTHING_URL ="everything"
     const val API_KEY_PARAMETER = "apiKey"
