@@ -9,7 +9,7 @@ repositories {
 }
 
 dependencies {
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.31")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.32")
 }
 val compileKotlin: KotlinCompile by tasks
 compileKotlin.kotlinOptions {
