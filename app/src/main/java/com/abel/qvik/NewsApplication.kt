@@ -23,9 +23,9 @@ class NewsApplication : Application() {
                 appModule,
                 presentationModule,
                 remoteModule,
+                cacheModule,
                 dataModule,
-                domainModule,
-                cacheModule
+                domainModule
             )
         }
     }

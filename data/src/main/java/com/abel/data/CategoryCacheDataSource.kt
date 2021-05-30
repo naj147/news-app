@@ -1,6 +1,7 @@
 package com.abel.data
 
+import com.abel.common.model.NewsCategory
+
 interface CategoryCacheDataSource {
-    suspend fun getCategories(): List<String>
-    suspend fun getKeywords(): List<String>
+    suspend fun getCategories(): List<NewsCategory>
 }

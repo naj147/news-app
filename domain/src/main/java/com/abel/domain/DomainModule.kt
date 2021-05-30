@@ -7,4 +7,7 @@ val domainModule = module {
     factory<GetFavoriteNewsUseCase>{
         GetNewsUseCaseImpl(get())
     }
+    factory<GetCategoryUseCase>{
+        GetCategoryUseCaseImpl(get())
+    }
 }

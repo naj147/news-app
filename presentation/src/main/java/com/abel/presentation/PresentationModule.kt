@@ -1,5 +1,6 @@
 package com.abel.presentation
 
+import com.abel.presentation.viewmodel.FavoriteCategoryViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -14,6 +15,9 @@ const val COMPUTATION_CONTEXT = "COMPUTATION_CONTEXT"
 @ExperimentalCoroutinesApi
 val presentationModule = module {
     factory<CoroutineContext>(named(COMPUTATION_CONTEXT)) { Dispatchers.Default }
+    baseViewModel {
+        FavoriteCategoryViewModel(get(), get(named(COMPUTATION_CONTEXT)))
+    }
 }
 
 inline fun <reified VS : BaseViewState, reified VM : BaseViewModel<VS>> Module.baseViewModel(

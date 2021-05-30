@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Qvik-test</string>
+    <string name="following">Following</string>
+    <string name="popular">Popular</string>
+    <string name="explore">Explore</string>
+    <string name="retry">Tap to retry</string>
 </resources>
