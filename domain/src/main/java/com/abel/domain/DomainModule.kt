@@ -4,7 +4,7 @@ import org.koin.dsl.module
 
 
 val domainModule = module {
-    factory<GetFavoriteNewsUseCase>{
+    factory<GetNewsUseCase>{
         GetNewsUseCaseImpl(get())
     }
     factory<GetCategoryUseCase>{

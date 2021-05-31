@@ -1,9 +1,9 @@
 package com.abel.remote.model
 
 data class Article(
-    val source: String,
+    val source: Source,
     val title: String,
-    val urlToImage: String,
-    val publishAt: String,
-    val content: String
+    val urlToImage: String?,
+    val publishedAt: String,
+    val content: String?
 )

@@ -9,20 +9,26 @@ import com.abel.qvik.view.retryRow
 import com.airbnb.epoxy.Typed3EpoxyController
 
 class FavoriteCategoryController(
+    private val renderer: ImageRenderer?,
     private val retryClickListener: () -> Unit,
-    private val renderer: ImageRenderer?
+    private val navigation: (newsCategory: NewsCategory) -> Unit
 ) : Typed3EpoxyController<List<NewsCategory>, Boolean, Boolean>() {
     override fun buildModels(
         favoriteCategories: List<NewsCategory>?,
         loading: Boolean?,
         failed: Boolean?
     ) {
-        favoriteCategories?.forEach {
+        check(!(loading ?: false && failed ?: false)) { "Something is wrong" }
+
+        favoriteCategories?.forEach { newsCategory ->
             categoryCard {
-                id(it.label)
-                newsCategory(it)
+                id(newsCategory.label)
+                newsLabel(newsCategory.label)
+                newsImageUrl(newsCategory.imageResource)
                 imageRenderer(this@FavoriteCategoryController.renderer)
-                clickListener(View.OnClickListener { })
+                clickListener(View.OnClickListener {
+                    this@FavoriteCategoryController.navigation(newsCategory)
+                })
                 spanSizeOverride { totalSpanCount, _, _ -> totalSpanCount / 2 }
             }
         }

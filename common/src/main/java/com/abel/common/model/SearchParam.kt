@@ -15,7 +15,11 @@ enum class SortType(sort: String) {
     PUBLISHED_AT("publishedAt");
 
     companion object {
-        fun from(findValue: String): SortType =
-            SortType.values().first { it.name.toLowerCase(Locale.getDefault()) == findValue }
+        fun from(findValue: String?): SortType {
+            return if (findValue.isNullOrEmpty())
+                RELEVANCY
+            else
+                values().first { it.name.toLowerCase(Locale.getDefault()) == findValue }
+        }
     }
 }

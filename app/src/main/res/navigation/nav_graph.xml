@@ -13,5 +13,54 @@
         android:id="@+id/favoriteFragment"
         android:name="com.abel.qvik.fragment.FavoriteFragment"
         android:label="FavoriteFragment"
-        tools:layout="@layout/fragment_favorite" />
+        tools:layout="@layout/fragment_favorite">
+        <action
+            android:id="@+id/action_favoriteFragment_to_articlesFragment"
+            app:destination="@id/articlesFragment">
+            <argument
+                android:name="header"
+                android:defaultValue="@null"
+                app:argType="com.abel.presentation.model.HeaderModel"
+                app:nullable="true" />
+            <argument
+                android:name="searchParam"
+                android:defaultValue="@null"
+                app:argType="com.abel.presentation.model.SearchParamPresentationModel"
+                app:nullable="true" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/articlesFragment"
+        android:name="com.abel.qvik.fragment.ArticlesFragment"
+        android:label="ArticlesFragment"
+        tools:layout="@layout/fragment_articles">
+        <argument
+            android:name="header"
+            android:defaultValue="@null"
+            app:argType="com.abel.presentation.model.HeaderModel"
+            app:nullable="true" />
+        <argument
+            android:name="searchParam"
+            app:argType="com.abel.presentation.model.SearchParamPresentationModel" />
+        <action
+            android:id="@+id/action_articlesFragment_to_articleFragment"
+            app:destination="@id/articleFragment">
+            <argument
+                android:name="articleModel"
+                android:defaultValue="@null"
+                app:argType="com.abel.presentation.model.ArticleModel"
+                app:nullable="true" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.abel.qvik.fragment.ArticleFragment"
+        android:label="ArticleFragment"
+        tools:layout="@layout/fragment_article">
+        <argument
+            android:name="articleModel"
+            android:defaultValue="@null"
+            app:argType="com.abel.presentation.model.ArticleModel"
+            app:nullable="true" />
+    </fragment>
 </navigation>

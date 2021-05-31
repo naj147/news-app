@@ -1,6 +1,5 @@
 package com.abel.qvik.core
 
-import android.app.Activity
 import android.widget.ImageView
 
 class ImageRenderGlideImpl :
@@ -9,6 +8,6 @@ class ImageRenderGlideImpl :
         imageHolder: ImageView,
         image: String
     ) {
-        imageHolder.loadUri(image)
+        imageHolder.loadUrl(image)
     }
 }

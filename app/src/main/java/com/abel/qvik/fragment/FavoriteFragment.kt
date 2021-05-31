@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import com.abel.presentation.model.toHeaderModel
+import com.abel.presentation.model.toSearchParamPresentationModel
 import com.abel.presentation.stateObjects.FavoriteCategoryState
 import com.abel.presentation.viewmodel.FavoriteCategoryViewModel
 import com.abel.qvik.activity.HomeActivity
@@ -22,7 +25,13 @@ class FavoriteFragment :
     lateinit var imageRenderer: ImageRenderer
     private val favoriteCategoryController by lazy {
         FavoriteCategoryController(
-            { viewmodel.loadCategories() }, imageRenderer
+            imageRenderer, { viewmodel.loadCategories() }, { newsCategory ->
+                val action =
+                    FavoriteFragmentDirections.actionFavoriteFragmentToArticlesFragment(
+                        newsCategory.toHeaderModel(), newsCategory.toSearchParamPresentationModel()
+                    )
+                findNavController().navigate(action)
+            }
         )
     }
 

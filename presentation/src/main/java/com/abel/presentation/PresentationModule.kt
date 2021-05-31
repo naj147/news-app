@@ -1,5 +1,7 @@
 package com.abel.presentation
 
+import com.abel.presentation.viewmodel.ArticleListViewModel
+import com.abel.presentation.viewmodel.ArticleViewModel
 import com.abel.presentation.viewmodel.FavoriteCategoryViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -17,6 +19,12 @@ val presentationModule = module {
     factory<CoroutineContext>(named(COMPUTATION_CONTEXT)) { Dispatchers.Default }
     baseViewModel {
         FavoriteCategoryViewModel(get(), get(named(COMPUTATION_CONTEXT)))
+    }
+    baseViewModel {
+        ArticleListViewModel(get(), get(named(COMPUTATION_CONTEXT)))
+    }
+    baseViewModel {
+        ArticleViewModel()
     }
 }
 

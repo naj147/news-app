@@ -1,17 +1,17 @@
 package com.abel.domain
 
-import com.abel.common.model.News
+import com.abel.common.model.PageOfNews
 import com.abel.common.model.SearchParam
 import com.abel.domain.repository.NewsRepository
 
-interface GetFavoriteNewsUseCase {
+interface GetNewsUseCase {
     suspend fun execute(
         searchParam: SearchParam
-    ): List<News>?
+    ): PageOfNews
 }
 
-internal class GetNewsUseCaseImpl(private val newsRepository: NewsRepository) : GetFavoriteNewsUseCase {
+internal class GetNewsUseCaseImpl(private val newsRepository: NewsRepository) : GetNewsUseCase {
     override suspend fun execute(
         searchParam: SearchParam
-    ): List<News>? = newsRepository.getNews(searchParam)
+    ): PageOfNews = newsRepository.getNews(searchParam)
 }

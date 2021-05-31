@@ -25,8 +25,8 @@ class NewsApiAdapter {
         } catch (ignored: JsonDataException) {
             try {
                 errorAdapter.fromJson(reader.peekJson())
-            } catch (_: Throwable) {
-                null
+            } catch (e: Throwable) {
+                OutOfOrdinaryException(e)
             }?.let {
                 throw it
             } ?: throw OutOfOrdinaryException()

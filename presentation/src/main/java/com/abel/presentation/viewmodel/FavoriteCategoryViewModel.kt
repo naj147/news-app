@@ -15,18 +15,7 @@ class FavoriteCategoryViewModel(
 ) : BaseViewModel<FavoriteCategoryState>() {
     init {
         _viewStates.value = FavoriteCategoryState.Uninitialized
-        _viewStates.value = FavoriteCategoryState.Loading
-        viewModelScope.launch {
-            _viewStates.value = FavoriteCategoryState.CategoriesLoaded(
-                try {
-                    withContext(backgroundContext) {
-                        getCategoryUseCase.execute()
-                    }
-                } catch (_: Throwable) {
-                    emptyList()
-                }
-            )
-        }
+        loadCategories()
     }
 
     fun loadCategories() {

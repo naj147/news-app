@@ -49,7 +49,7 @@ fun GlideRequest<Drawable>.configure(
         if (!noFade) transition(DrawableTransitionOptions().crossFade())
     }
 
-fun ImageView.loadUri(
+fun ImageView.loadUrl(
     url: String?,
     cache: Boolean = true,
     noFade: Boolean = false,

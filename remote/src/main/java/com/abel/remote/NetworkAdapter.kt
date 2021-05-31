@@ -13,4 +13,4 @@ fun NewsRemoteModel.ToPageOfNews(
     PageOfNews(page ?: 1, totalResults ?: 0, articles?.map { it.toNews(category) })
 
 fun Article.toNews(category: String) =
-    News(category, title, urlToImage, source, publishAt, content)
+    News(category, title, urlToImage ?: "", source.name ?: "", publishedAt, content ?: "No Content")

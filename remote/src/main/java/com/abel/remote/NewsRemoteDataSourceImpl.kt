@@ -19,7 +19,7 @@ class NewsRemoteDataSourceImpl(
                 it.query,
                 it.category,
                 it.page
-            ).ToPageOfNews(searchParam.page)
+            ).ToPageOfNews(searchParam.page, searchParam.category ?: "")
         }, searchParam)
 
 
@@ -27,7 +27,7 @@ class NewsRemoteDataSourceImpl(
         serviceFunc({
             newsService.fetchNewsBySortParam(
                 it.sortType.toString(), it.page
-            ).ToPageOfNews(searchParam.page)
+            ).ToPageOfNews(searchParam.page, searchParam.category ?: "")
         }, searchParam)
 
     private suspend fun serviceFunc(
