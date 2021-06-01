@@ -28,6 +28,9 @@ val presentationModule = module {
     }
 }
 
+// Generic function for Injecting the ViewModel that has ViewState
+// Inline and reified used as class parameters are needed
+
 inline fun <reified VS : BaseViewState, reified VM : BaseViewModel<VS>> Module.baseViewModel(
     name: String? = null,
     override: Boolean = false,

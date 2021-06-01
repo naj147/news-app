@@ -23,7 +23,7 @@ internal abstract class HeaderCard : EpoxyModelWithHolder<HeaderCardHolder>() {
         super.bind(holder)
         holder.headerTitle.text = headerData.title + " Channel"
         holder.headerImage.loadUrl(headerData.image)
-        holder.followers.text = headerData.followers
+        holder.followers.text = headerData.followers + " Followers"
     }
 }
 

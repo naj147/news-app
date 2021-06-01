@@ -2,7 +2,7 @@ package com.abel.common.model
 
 data class NewsCategory(
     val imageResource: String,
-    val followers: Int,
+    val followers: String,
     val label: String,
     val isOnApi: Boolean = true
 )

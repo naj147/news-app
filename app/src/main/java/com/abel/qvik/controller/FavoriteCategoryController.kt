@@ -10,7 +10,7 @@ import com.airbnb.epoxy.Typed3EpoxyController
 
 class FavoriteCategoryController(
     private val renderer: ImageRenderer?,
-    private val retryClickListener: () -> Unit,
+    private inline val retryClickListener: () -> Unit,
     private val navigation: (newsCategory: NewsCategory) -> Unit
 ) : Typed3EpoxyController<List<NewsCategory>, Boolean, Boolean>() {
     override fun buildModels(

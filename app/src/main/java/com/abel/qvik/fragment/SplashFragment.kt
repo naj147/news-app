@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.abel.qvik.R
 import com.abel.qvik.activity.HomeActivity
 import com.abel.qvik.databinding.FragmentSplashBinding
 import kotlinx.coroutines.Dispatchers
@@ -45,8 +44,9 @@ class SplashFragment : Fragment() {
         (activity as HomeActivity).supportActionBar?.hide()
         GlobalScope.launch(Dispatchers.Main) {
             delay(4000L)
-            findNavController().navigate(R.id.favoriteFragment)
-            onDestroy()
+            val action =
+                SplashFragmentDirections.actionSplashFragmentToFavoriteFragment()
+            findNavController().navigate(action)
         }
     }
 

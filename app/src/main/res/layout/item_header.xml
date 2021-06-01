@@ -13,6 +13,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_xxl"
+        android:background="@drawable/overlay"
+        app:layout_constraintBottom_toBottomOf="@id/headerImg"
+        app:layout_constraintLeft_toLeftOf="@id/headerImg" />
+
     <TextView
         android:id="@+id/headerTitle"
         style="@style/TitleChannel"
@@ -25,13 +32,17 @@
         app:layout_constraintVertical_bias="0.2" />
 
     <TextView
+        style="@style/TitleCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_chip_shape"
+        android:padding="@dimen/spacing_xxs"
+        android:text="@string/following"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintVertical_bias="0.5" />
 
     <TextView
         android:id="@+id/followers"

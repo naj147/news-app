@@ -13,7 +13,7 @@ import com.airbnb.epoxy.Typed4EpoxyController
 class ArticlesController(
     private val pageLoadingHandler: PageLoadingHandler,
     private val onArticleClick: (articleModel: ArticleModel) -> Unit,
-    private val retryClickListener: () -> Unit
+    private inline val retryClickListener: () -> Unit
 ) :
     Typed4EpoxyController<List<ArticleModel>, HeaderModel, Boolean, Boolean>() {
     override fun buildModels(

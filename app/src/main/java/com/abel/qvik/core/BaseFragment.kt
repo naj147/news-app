@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.viewbinding.ViewBinding
 import com.abel.presentation.BaseViewModel
@@ -35,10 +36,10 @@ abstract class BaseFragment<VM : BaseViewModel<VS>, VS : BaseViewState, VB : Vie
         return binding.root
     }
 
-    protected fun initSupportActionBar(toolbar: Toolbar) {
-        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+    protected fun initSupportActionBar() {
         (activity as AppCompatActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        toolbar.setupWithNavController(findNavController())
+        (activity as AppCompatActivity).setupActionBarWithNavController(findNavController())
+
     }
 
 
