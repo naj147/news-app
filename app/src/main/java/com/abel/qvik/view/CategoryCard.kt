@@ -43,7 +43,6 @@ class CategoryCard @JvmOverloads constructor(
             this.setOnClickListener(value)
         }
 
-    // Todo: better placeholder
     @AfterPropsSet
     fun renderObject() {
         imageRenderer?.renderImage(

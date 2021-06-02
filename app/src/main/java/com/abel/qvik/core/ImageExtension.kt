@@ -45,7 +45,7 @@ fun GlideRequest<Drawable>.configure(
     .apply {
         errorImage?.let { error(it) }
         if (centerCrop) centerCrop() else centerInside()
-        if (!noPlaceholder) placeholder(R.drawable.overlay)
+        if (!noPlaceholder) placeholder(R.drawable.background_article_header)
         if (!noFade) transition(DrawableTransitionOptions().crossFade())
     }
 

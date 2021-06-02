@@ -6,5 +6,5 @@
     <stroke
         android:width="@dimen/spacing_1dp"
         android:color="@color/pink_light" />
-    <corners android:radius="@dimen/spacing_10dp" />
+    <corners android:radius="@dimen/spacing_extra_padding" />
 </shape>

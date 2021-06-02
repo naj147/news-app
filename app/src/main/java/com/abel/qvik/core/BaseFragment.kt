@@ -1,6 +1,5 @@
 package com.abel.qvik.core
 
-import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -13,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.abel.presentation.BaseViewModel
 import com.abel.presentation.BaseViewState
+import com.abel.qvik.R
 import com.abel.qvik.activity.HomeActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.reflect.KClass

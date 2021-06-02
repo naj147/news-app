@@ -6,7 +6,6 @@
     android:background="@drawable/bg">
 
     <ImageView
-        android:id="@+id/splashImg"
         android:layout_width="@dimen/size_xxl"
         android:layout_height="@dimen/size_xxl"
         android:src="@drawable/splash_logo"
