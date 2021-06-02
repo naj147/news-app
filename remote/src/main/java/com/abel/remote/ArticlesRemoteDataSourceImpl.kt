@@ -7,10 +7,16 @@ import com.squareup.moshi.JsonDataException
 import kotlinx.coroutines.withContext
 import kotlin.coroutines.CoroutineContext
 
+/**
+ * Class used to get articles [ArticlesRemoteDataSource] using Retrofit Service
+ * @property NewsService withing a
+ * @property CoroutineContext
+ */
 class ArticlesRemoteDataSourceImpl(
     private val newsService: NewsService,
     private val ioContext: CoroutineContext
 ) : ArticlesRemoteDataSource {
+
     override suspend fun getArticlesWithCategory(
         searchParam: SearchParam
     ): PageOfArticles =
@@ -19,7 +25,7 @@ class ArticlesRemoteDataSourceImpl(
                 it.query,
                 it.category,
                 it.page
-            ).ToPageOfNews(searchParam.page, searchParam.category ?: "")
+            ).toPageOfArticles(searchParam.page, searchParam.category ?: "")
         }, searchParam)
 
 //    override suspend fun getLatestNews(searchParam: SearchParam): PageOfNews =
@@ -29,6 +35,12 @@ class ArticlesRemoteDataSourceImpl(
 //            ).ToPageOfNews(searchParam.page, searchParam.category ?: "")
 //        }, searchParam)
 
+
+    /**
+        function that wraps the retrofit service calls inside a coroutine context
+        used as I thought I'll expand to include other retrofit service [com.abel.remote.NewsService] calls like the one commented above in which
+        this function cuts down on boilerplate
+     */
     private suspend fun serviceFunc(
         fn: suspend (search: SearchParam) -> PageOfArticles,
         searchParam: SearchParam

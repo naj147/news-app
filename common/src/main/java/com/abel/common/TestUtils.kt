@@ -1,7 +1,7 @@
 package com.abel.common
 
 import com.abel.common.model.*
-
+// Contains Test dummy objects used in other modules test files
 fun getDummyArticleCategories() = listOf(
     ArticleCategory("https://i.imgur.com/aZGiYMx.png", "321k", "fashion"),
     ArticleCategory("https://i.imgur.com/T96WYUX.png", "120k", "science"),

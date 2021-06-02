@@ -15,9 +15,11 @@ val appModule = module {
     single(named(BOOLEAN_DEBUG)) {
         BuildConfig.DEBUG
     }
+    // Initiate Image renderer
     single<ImageRenderer> {
         ImageRenderGlideImpl()
     }
+    // Initiate okhttp cache to be injected in the remote module
     single<OkHttpCache<Cache>>(named(OKHTTP_CLIENT_CACHE)) {
         OkHttpCacheImpl(get())
     }

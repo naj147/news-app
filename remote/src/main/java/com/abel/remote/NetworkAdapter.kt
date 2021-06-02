@@ -8,13 +8,15 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-fun NewsRemoteModel.ToPageOfNews(
+//Formatting Full API response to our domain model
+fun NewsRemoteModel.toPageOfArticles(
     page: Int?,
     category: String = ""
 ): PageOfArticles =
-    PageOfArticles(page ?: 1, totalResults ?: 0, articles?.map { it.toNews(category) })
+    PageOfArticles(page ?: 1, totalResults ?: 0, articles?.map { it.toArticle(category) })
 
-fun ArticleRemoteModel.toNews(category: String) =
+//Formatting API response article object to our domain model
+fun ArticleRemoteModel.toArticle(category: String) =
     Article(
         category,
         title,
@@ -24,6 +26,7 @@ fun ArticleRemoteModel.toNews(category: String) =
         content ?: "No Content"
     )
 
+// Formatting date from API to look like design
 fun formatDate(date: String): String {
     return try {
         val format = SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss'Z'", Locale.getDefault())

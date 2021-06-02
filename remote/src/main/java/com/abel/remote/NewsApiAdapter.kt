@@ -6,6 +6,7 @@ import com.abel.remote.model.NewsRemoteModel
 import com.squareup.moshi.*
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 
+// Adapter used by moshi to convert Json response to either object or exception
 internal class NewsApiAdapter {
     private val responseAdapter: JsonAdapter<NewsRemoteModel>
     private val errorAdapter: JsonAdapter<NewsApiException>

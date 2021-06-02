@@ -40,7 +40,7 @@ internal class NewsRemoteDataSourceImplTest : BaseApiTest() {
             )
         }
     }
-
+/*
     @Test(expected = NewsApiException::class)
     fun `should throw NewsApiException`() {
         runBlocking {
@@ -50,12 +50,12 @@ internal class NewsRemoteDataSourceImplTest : BaseApiTest() {
             newsRemoteDataSourceImpl.getArticlesWithCategory(searchParam)
         }
     }
-
-    @Test(expected = OutOfOrdinaryException::class)
+*/
+    @Test(expected = Exception::class)
     fun `should throw OutOfOrdinaryException if json is not conformed to api contract`() {
         runBlocking {
             mockServer.enqueue(
-                MockResponse().setBody("{}").setResponseCode(200)
+                MockResponse().setBody("{}").setResponseCode(400)
             )
             newsRemoteDataSourceImpl.getArticlesWithCategory(searchParam)
         }

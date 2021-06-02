@@ -15,7 +15,6 @@ object RemoteFactory {
      * @param baseUrl [String] with a valid baseUrl including http scheme
      * @param restApi [T] with Retrofit interface
      * @param okHttpClient [OkHttpClient] to use when accessing this rest api
-     * todo: generalise the MoshiConverterFactory
      */
     fun <T> buildRestApi(
         baseUrl: String,
@@ -36,7 +35,7 @@ object RemoteFactory {
      *
      * @param restApiInterceptors [List] of [Interceptor] to attach to the expected client
      * @param restApiNetworkInterceptors [List] of network [Interceptor] to attach to the expected client
-     * TODO:  Introduce a caching solution (check  bookmarks)
+     * @param okHttpCache injected container of [OkHttpCache] directory and network verification method to add cache to the [OkHttpClient]
      */
     fun buildOkHttpClient(
         restApiInterceptors: List<Interceptor>?,
@@ -58,8 +57,8 @@ object RemoteFactory {
                         */
                         request = if (okCache.hasNetwork())
                         /*
-                        *  If there is Internet, get the cache that was stored 5 seconds ago.
-                        *  If the cache is older than 5 seconds, then discard it,
+                        *  If there is Internet, get the cache that was stored 60 seconds ago.
+                        *  If the cache is older than 60 seconds, then discard it,
                         *  and indicate an error in fetching the response.
                         *  The 'max-age' attribute is responsible for this behavior.
                         */

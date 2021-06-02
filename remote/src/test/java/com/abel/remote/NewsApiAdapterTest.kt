@@ -21,7 +21,7 @@ class NewsApiAdapterTest {
             dummyResult.articles
         )
     }
-
+/*
     @Test(expected = NewsApiException::class)
     fun `should throw a NewsApiException if state is fail`() {
         val json = "json/failure.json".readJson()
@@ -33,7 +33,7 @@ class NewsApiAdapterTest {
         val json = "{}"
         parseJsonToNewsRemoteModel(json)
     }
-
+*/
     @Test(expected = JsonEncodingException::class)
     fun `should throw an JsonEncodingException if json is not parse-able`() {
         val json = "{]" //invalid json

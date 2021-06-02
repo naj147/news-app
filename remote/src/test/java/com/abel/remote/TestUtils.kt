@@ -15,6 +15,7 @@ fun String.readJson() = TestUtils::class.java.classLoader
     .bufferedReader()
     .use { it.readText() }
 
+// Dummy objects filled with placeholder information for tests
 internal fun getDummyNewsRemoteModel(): NewsRemoteModel = NewsRemoteModel(
         447, listOf(
                 ArticleRemoteModel(
