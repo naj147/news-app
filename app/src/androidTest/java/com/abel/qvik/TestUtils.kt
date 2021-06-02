@@ -14,3 +14,8 @@ fun Int.checkVisible() {
     Espresso.onView(ViewMatchers.withId(this))
         .check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
 }
+
+fun Int.checkExists() {
+    Espresso.onView(ViewMatchers.withId(this))
+        .check(ViewAssertions.matches(Matchers.not(ViewAssertions.doesNotExist())))
+}

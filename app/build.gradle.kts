@@ -3,6 +3,7 @@ plugins {
     id("kotlin-android")
     kotlin("android.extensions")
     id("kotlin-kapt")
+    id("kotlin-allopen")
     id("androidx.navigation.safeargs.kotlin")
 }
 android {
@@ -53,7 +54,15 @@ android {
 
     packagingOptions {
         pickFirst("META-INF/services/javax.annotation.processing.Processor")
-        exclude("META-INF/main.kotlin_module")
+        exclude("META-INF/*.kotlin_module")
+        exclude ("META-INF/DEPENDENCIES")
+        exclude ("META-INF/LICENSE")
+        exclude ("META-INF/LICENSE.txt")
+        exclude ("META-INF/license.txt")
+        exclude ("META-INF/NOTICE")
+        exclude ("META-INF/NOTICE.txt")
+        exclude ("META-INF/notice.txt")
+        exclude ("META-INF/ASL2.0")
     }
 }
 
@@ -85,6 +94,7 @@ dependencies {
     implementation(Dependencies.recyclerView)
     implementation(Dependencies.epoxy)
     implementation(Dependencies.lottieAnimation)
+    implementation(("com.github.wseemann:FFmpegMediaMetadataRetriever-native:1.0.15"))
     kapt(Dependencies.glideCompiler)
     kapt(Dependencies.epoxyProcessor)
 
