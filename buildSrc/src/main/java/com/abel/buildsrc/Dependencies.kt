@@ -7,7 +7,6 @@ object Versions {
     const val androidX = "1.3.0"
     const val assertJ = "3.13.2"
     const val assertJAndroid = "1.2.0"
-    const val cardView = "1.0.0"
     const val constraintlayout = "2.0.0-beta1"
     const val coreKtx = "1.2.0-beta01"
     const val coreTesting = "1.1.1"
