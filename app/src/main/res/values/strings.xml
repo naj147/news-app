@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Qvik-test</string>
+    <string name="following">Following</string>
+    <string name="popular">Popular</string>
+    <string name="explore">Explore</string>
+    <string name="retry">Tap to retry</string>
+    <string name="error_msg">An error has occurred</string>
+    <string name="coming_soon">This feature is coming soon</string>
 </resources>

@@ -1,6 +1,6 @@
 package com.abel.exception
 
-class NewsApiException(
+data class NewsApiException(
     val code: String,
     override val message: String,
     val status: String

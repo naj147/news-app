@@ -3,19 +3,23 @@ package com.abel.common.model
 import java.util.*
 
 data class SearchParam(
-    val category: String?,
-    val query: String?,
+    val category: String? = null,
+    val query: String? = null,
     val sortType: SortType? = SortType.RELEVANCY,
-    val page: Int?
+    val page: Int? = null
 )
 
 enum class SortType(sort: String) {
     POPULARITY("popularity"),
     RELEVANCY("relevancy"),
-    PUBLISHEDAT("publishedAt");
+    PUBLISHED_AT("publishedAt");
 
     companion object {
-        fun from(findValue: String): SortType =
-            SortType.values().first { it.name.toLowerCase(Locale.getDefault()) == findValue }
+        fun from(findValue: String?): SortType {
+            return if (findValue.isNullOrEmpty())
+                RELEVANCY
+            else
+                values().first { it.name.toLowerCase(Locale.getDefault()) == findValue }
+        }
     }
 }

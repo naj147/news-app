@@ -1,19 +1,21 @@
+import Versions.lottieVersion
+import Versions.navigation
+
 object Versions {
     const val androidGradlePlugin = "4.1.2"
     const val androidTest = "1.3.0-alpha02"
-    const val androidX = "1.1.0"
+    const val androidX = "1.3.0"
     const val assertJ = "3.13.2"
     const val assertJAndroid = "1.2.0"
-    const val cardView = "1.0.0"
     const val constraintlayout = "2.0.0-beta1"
     const val coreKtx = "1.2.0-beta01"
     const val coreTesting = "1.1.1"
-    const val coroutinesCore = "1.5.0"
+    const val coroutinesCore = "1.4.3"
     const val espresso = "3.3.0-alpha02"
-    const val glide = "4.10.0"
-    const val junit = "4.13-beta-3"
+    const val glide = "4.12.0"
+    const val junit = "4.12"
     const val koin = "3.0.2"
-    const val kotlin = "1.3.72"
+    const val kotlin = "1.4.32"
     const val lifecycle = "2.2.0-rc01"
     const val mockk = "1.9.3"
     const val mockWebServer = "4.9.1"
@@ -21,12 +23,15 @@ object Versions {
     const val okHttp = "4.9.1"
     const val recyclerView = "1.1.0-rc01"
     const val retrofit = "2.9.0"
-    const val epoxy = "3.8.0"
+    const val epoxy = "4.6.1"
+    const val material = "1.4.0-beta01"
+    const val navigation = "2.3.5"
+    const val lottieVersion = "3.4.0"
 }
 
 object Dependencies {
     const val appCompat = "androidx.appcompat:appcompat:${Versions.androidX}"
-    const val cardView = "androidx.cardview:cardview:${Versions.cardView}"
+    const val kotlinAllOpen = "org.jetbrains.kotlin:kotlin-allopen:${Versions.kotlin}"
     const val constraintLayout =
         "androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}"
     const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"
@@ -39,7 +44,6 @@ object Dependencies {
     const val glideOkHttp = "com.github.bumptech.glide:okhttp3-integration:${Versions.glide}"
     const val koinCore = "io.insert-koin:koin-core:${Versions.koin}"
     const val koinAndroid = "io.insert-koin:koin-android:${Versions.koin}"
-    const val kotlinAllOpen = "org.jetbrains.kotlin:kotlin-allopen:${Versions.kotlin}"
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
     const val livecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
     const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycle}"
@@ -51,11 +55,17 @@ object Dependencies {
     const val okHttp = "com.squareup.okhttp3:okhttp:${Versions.okHttp}"
     const val okHttpLoggingInterceptor =
         "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
+    const val navGraphFragment = "androidx.navigation:navigation-fragment-ktx:$navigation"
+    const val navGraphUI = "androidx.navigation:navigation-ui-ktx:$navigation"
+    const val navGraphSafeArgs = "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation"
     const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofitConverterMoshi = "com.squareup.retrofit2:converter-moshi:${Versions.retrofit}"
     const val epoxy = "com.airbnb.android:epoxy:${Versions.epoxy}"
     const val epoxyProcessor = "com.airbnb.android:epoxy-processor:${Versions.epoxy}"
+    const val materialDesign = "com.google.android.material:material:${Versions.material}"
+    const val lottieAnimation = "com.airbnb.android:lottie:${lottieVersion}"
+
 }
 
 
@@ -68,7 +78,7 @@ object TestDependencies {
     const val coroutinesTest =
         "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesCore}"
     const val junit = "junit:junit:${Versions.junit}"
-    const val koinTest = "org.koin:koin-test:${Versions.koin}"
+    const val koinTest = "io.insert-koin:koin-test:${Versions.koin}"
     const val mockk = "io.mockk:mockk:${Versions.mockk}"
     const val mockkAndroid = "io.mockk:mockk-android:${Versions.mockk}"
     const val mockWebServer = "com.squareup.okhttp3:mockwebserver:${Versions.mockWebServer}"

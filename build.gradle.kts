@@ -1,5 +1,4 @@
 buildscript {
-    val kotlin_version by extra("1.4.32")
     repositories {
         google()
         jcenter()
@@ -8,6 +7,8 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:${Versions.androidGradlePlugin}")
         classpath(kotlin("gradle-plugin", version = Versions.kotlin))
+        classpath(Dependencies.kotlinAllOpen)
+        classpath(Dependencies.navGraphSafeArgs)
     }
 }
 allprojects {
@@ -15,6 +16,11 @@ allprojects {
         google()
         jcenter()
         maven("https://kotlin.bintray.com/kotlinx/")
+    }
+    configurations.all {
+        resolutionStrategy {
+            force("org.objenesis:objenesis:2.6")
+        }
     }
 }
 

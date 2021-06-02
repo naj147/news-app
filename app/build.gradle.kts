@@ -1,14 +1,14 @@
-import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
-
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    id("kotlin-android-extensions")
+    kotlin("android.extensions")
     id("kotlin-kapt")
+    id("kotlin-allopen")
+    id("androidx.navigation.safeargs.kotlin")
 }
 android {
     compileSdkVersion(AndroidSettings.compileSdkVersion)
-    buildToolsVersion = "30.0.2"
+    buildToolsVersion = AndroidSettings.buildToolsVersion
     defaultConfig {
         applicationId = "com.abel.qvik"
         minSdkVersion(AndroidSettings.minSdkVersion)
@@ -16,12 +16,20 @@ android {
         testInstrumentationRunner = AndroidSettings.testInstrumentationRunner
         versionCode = 1
         versionName = "1.0"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    buildFeatures {
+        viewBinding = true
     }
 
     buildTypes {
-        getByName("release"){
+        getByName("release") {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 
@@ -29,13 +37,32 @@ android {
         sourceCompatibility = AndroidSettings.sourceCompatibility
         targetCompatibility = AndroidSettings.targetCompatibility
     }
+
+    testOptions {
+        animationsDisabled = true
+        unitTests.isReturnDefaultValues = true
+        unitTests.isIncludeAndroidResources = true
+    }
+
     kotlinOptions {
-        this as KotlinJvmOptions
         jvmTarget = "1.8"
     }
+
+    androidExtensions {
+        isExperimental = true
+    }
+
     packagingOptions {
         pickFirst("META-INF/services/javax.annotation.processing.Processor")
-        exclude("META-INF/main.kotlin_module")
+        exclude("META-INF/*.kotlin_module")
+        exclude ("META-INF/DEPENDENCIES")
+        exclude ("META-INF/LICENSE")
+        exclude ("META-INF/LICENSE.txt")
+        exclude ("META-INF/license.txt")
+        exclude ("META-INF/NOTICE")
+        exclude ("META-INF/NOTICE.txt")
+        exclude ("META-INF/notice.txt")
+        exclude ("META-INF/ASL2.0")
     }
 }
 
@@ -44,12 +71,42 @@ kapt {
 }
 
 dependencies {
+    implementation(project(":common"))
+    implementation(project(":data"))
+    implementation(project(":domain"))
+    implementation(project(":presentation"))
+    implementation(project(":remote"))
+    implementation(project(":cache"))
+    implementation(Dependencies.appCompat)
+    implementation(Dependencies.materialDesign)
+    implementation(Dependencies.coreKtx)
+    implementation(Dependencies.coroutinesAndroid)
+    implementation(Dependencies.coroutinesCore)
+    implementation(Dependencies.constraintLayout)
+    implementation(Dependencies.glide)
+    implementation(Dependencies.navGraphFragment)
+    implementation(Dependencies.navGraphUI)
+    implementation(Dependencies.glideOkHttp)
+    implementation(Dependencies.koinCore)
+    implementation(Dependencies.koinAndroid)
+    implementation(Dependencies.kotlinStdLib)
+    implementation(Dependencies.lifecycleRuntimeKtx)
+    implementation(Dependencies.recyclerView)
+    implementation(Dependencies.epoxy)
+    implementation(Dependencies.lottieAnimation)
+    implementation(("com.github.wseemann:FFmpegMediaMetadataRetriever-native:1.0.15"))
+    kapt(Dependencies.glideCompiler)
+    kapt(Dependencies.epoxyProcessor)
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.3.50")
-    implementation("androidx.core:core-ktx:1.5.0")
-    implementation("androidx.appcompat:appcompat:1.3.0")
-    implementation("com.google.android.material:material:1.3.0")
-    testImplementation("junit:junit:4.+")
-    androidTestImplementation ("androidx.test.ext:junit:1.1.2")
-    androidTestImplementation ("androidx.test.espresso:espresso-core:3.3.0")
+    //test dep
+    androidTestImplementation(TestDependencies.assertJAndroid)
+    androidTestImplementation(TestDependencies.espresso)
+    androidTestImplementation(TestDependencies.espressoCont)
+    androidTestImplementation(TestDependencies.koinTest)
+    androidTestImplementation(TestDependencies.mockkAndroid) {
+        exclude(group = "org.jetbrains.kotlin", module = "kotlin-reflect")
+    }
+    androidTestImplementation(TestDependencies.testRule)
+    androidTestImplementation(TestDependencies.testRunner)
+
 }

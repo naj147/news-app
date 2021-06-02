@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:targetApi="O">
+    <font
+        android:font="@font/helvetica_neue_regular"
+        app:font="@font/helvetica_neue_regular"
+        app:fontStyle="normal" />
+
+    <font
+        android:font="@font/helvetica_neue_bold"
+        app:font="@font/helvetica_neue_bold" />
+
+    <font
+        android:font="@font/helvetica_neue_bold_oblique"
+        app:font="@font/helvetica_neue_bold_oblique" />
+    <font
+        android:font="@font/helvetica_neue_oblique"
+        app:font="@font/helvetica_neue_oblique"
+        app:fontStyle="italic" />
+
+</font-family>

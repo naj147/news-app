@@ -2,6 +2,7 @@ import org.gradle.api.JavaVersion
 
 object AndroidSettings {
 
+    const val buildToolsVersion = "30.0.2"
     const val minSdkVersion = 23
     const val compileSdkVersion = 30
     const val targetSdkVersion = 30

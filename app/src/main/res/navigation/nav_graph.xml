@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.abel.qvik.fragment.SplashFragment"
+        android:label=" "
+        tools:layout="@layout/fragment_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popUpTo="@id/nav_graph"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/emptyFragment2"
+        android:name="com.abel.qvik.fragment.EmptyFragment"
+        android:label=" "
+        tools:layout="@layout/fragment_empty" />
+    <fragment
+        android:id="@+id/emptyFragment1"
+        android:name="com.abel.qvik.fragment.EmptyFragment"
+        android:label=" "
+        tools:layout="@layout/fragment_empty" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.abel.qvik.fragment.FavoriteFragment"
+        android:label=" "
+        tools:layout="@layout/fragment_favorite">
+        <action
+            android:id="@+id/action_favoriteFragment_to_articlesFragment"
+            app:destination="@id/articlesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left">
+            <argument
+                android:name="header"
+                android:defaultValue="@null"
+                app:argType="com.abel.presentation.model.HeaderModel"
+                app:nullable="true" />
+            <argument
+                android:name="searchParam"
+                android:defaultValue="@null"
+                app:argType="com.abel.presentation.model.SearchParamPresentationModel"
+                app:nullable="true" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/articlesFragment"
+        android:name="com.abel.qvik.fragment.ArticlesFragment"
+        android:label=" "
+        tools:layout="@layout/fragment_articles">
+        <argument
+            android:name="header"
+            android:defaultValue="@null"
+            app:argType="com.abel.presentation.model.HeaderModel"
+            app:nullable="true" />
+        <argument
+            android:name="searchParam"
+            app:argType="com.abel.presentation.model.SearchParamPresentationModel" />
+        <action
+            android:id="@+id/action_articlesFragment_to_articleFragment"
+            app:destination="@id/articleFragment"
+            app:enterAnim="@anim/slide_in_up"
+            app:exitAnim="@anim/slide_out_down">
+            <argument
+                android:name="articleModel"
+                android:defaultValue="@null"
+                app:argType="com.abel.presentation.model.ArticleModel"
+                app:nullable="true" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/articleFragment"
+        android:name="com.abel.qvik.fragment.ArticleFragment"
+        android:label=" "
+        tools:layout="@layout/fragment_article">
+        <argument
+            android:name="articleModel"
+            android:defaultValue="@null"
+            app:argType="com.abel.presentation.model.ArticleModel"
+            app:nullable="true" />
+    </fragment>
+</navigation>

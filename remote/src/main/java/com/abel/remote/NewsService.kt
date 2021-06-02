@@ -15,10 +15,11 @@ interface NewsService {
         @Query("category") category: String?,
         @Query("page") page: Int?
     ): NewsRemoteModel
-
-    //Fetching news  either by popularity or by newest first
-    @GET(EVERYTHING_URL)
-    suspend fun fetchNewsBySortParam(
-        @Query("sortBy") sort: String
-    ): NewsRemoteModel
+//
+//    //Fetching news  either by popularity or by newest first
+//    @GET(EVERYTHING_URL)
+//    suspend fun fetchNewsBySortParam(
+//        @Query("sortBy") sort: String,
+//        @Query("page") page: Int?
+//    ): NewsRemoteModel
 }
