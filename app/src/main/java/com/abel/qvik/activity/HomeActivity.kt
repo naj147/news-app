@@ -21,7 +21,7 @@ class HomeActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         val navController =
             (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
-        NavigationUI.setupWithNavController(binding.bottomNav, navController);
+        NavigationUI.setupWithNavController(binding.bottomNav, navController)
         binding.toolbar.setupWithNavController(navController)
     }
 

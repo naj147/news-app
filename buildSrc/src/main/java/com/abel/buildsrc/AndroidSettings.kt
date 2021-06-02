@@ -1,3 +1,5 @@
+@file:Suppress("Annotator")
+
 import org.gradle.api.JavaVersion
 
 object AndroidSettings {

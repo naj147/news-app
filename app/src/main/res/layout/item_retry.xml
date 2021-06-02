@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/retryButton"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:drawableTop="@drawable/ic_baseline_replay_24"
     android:drawablePadding="@dimen/medium_margin"
     android:gravity="center"
     android:padding="@dimen/medium_margin"
-    android:text="@string/retry" />
+    android:text="@string/retry"
+    app:drawableTopCompat="@drawable/ic_baseline_replay_24" />

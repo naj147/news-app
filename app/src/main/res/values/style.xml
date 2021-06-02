@@ -58,10 +58,6 @@
         <item name="android:textSize">@dimen/text_s</item>
     </style>
 
-    <style name="BodyS" parent="Body">
-        <item name="android:textSize">@dimen/text_xs</item>
-    </style>
-
     <style name="BodyBold" parent="Body">
         <item name="fontFamily">@font/helvetica_neue_bold</item>
     </style>
