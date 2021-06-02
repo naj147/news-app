@@ -3,19 +3,19 @@
 Introduction
 ------------
 
-- The application is written fully in Kotlin and uses Clean Architecture based on MVVM and Repository patterns. It also implements MVI architecture in it’s Presentation layer, one of the newest architecture patterns for Android, inspired by the unidirectional and cyclical nature of the Cycle.js framework.
+- The application is written fully in Kotlin and uses [Clean Architecture based on MVVM and Repository patterns](https://developer.android.com/jetpack/docs/guide). It also implements [MVI architecture](https://www.raywenderlich.com/817602-mvi-architecture-for-android-tutorial-getting-started) in it’s Presentation layer, one of the newest architecture patterns for Android, inspired by the unidirectional and cyclical nature of the Cycle.js framework.
 
 - Android Jetpack components are used to sustain the architectures, some components that are used: ViewModel, MutableLiveData, Lifecycles, Navigation component, BottomNavCom...
 
-- The application gets the data from NewsApi, using OKHttp, Retrofit and Moshi to parse it. OkHttp cache implemented. 
+- The application gets the data from [NewsApi](https://newsapi.org/), using OKHttp, Retrofit and Moshi to parse it. OkHttp cache implemented. 
 
-- Pagination was also made utilising a custom implementation of the Epoxy component.
+- Pagination was also made utilising a custom implementation of the [Epoxy component](https://github.com/airbnb/epoxy).
 
 - Kotlin Coroutines are used for background tasks and multitasking.
 
 - Koin is used for dependency injection.
 
-- Lottie is used for animations.
+- [Lottie](https://github.com/airbnb/lottie-android) is used for animations.
 
 - The project hosts 9 modules each serving a distinguished purpose (Figured from the name).
 
@@ -24,7 +24,7 @@ Introduction
 
 Getting Started
 ---------------
-- Getting Android Studio IDE
+- Getting [Android Studio IDE](https://developer.android.com/studio)
 - Import project
 - Run Gradle Wrappers / Project Tasks `gradlew build` `
 * `gradlew test` - and for tests run
