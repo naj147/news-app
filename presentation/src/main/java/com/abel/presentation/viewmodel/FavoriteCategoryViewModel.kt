@@ -15,7 +15,6 @@ class FavoriteCategoryViewModel(
 ) : BaseViewModel<FavoriteCategoryState>() {
     init {
         _viewStates.value = FavoriteCategoryState.Uninitialized
-        loadCategories()
     }
 
     fun loadCategories() {

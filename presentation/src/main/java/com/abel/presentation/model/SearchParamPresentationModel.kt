@@ -1,7 +1,7 @@
 package com.abel.presentation.model
 
 import android.os.Parcelable
-import com.abel.common.model.NewsCategory
+import com.abel.common.model.ArticleCategory
 import com.abel.common.model.SearchParam
 import com.abel.common.model.SortType
 import kotlinx.android.parcel.Parcelize
@@ -21,7 +21,7 @@ fun SearchParam.toSearchParamPresentationModel() =
 fun SearchParamPresentationModel.toSearchParam() =
     SearchParam(category, query, SortType.from(sortType), page)
 
-fun NewsCategory.toSearchParamPresentationModel() = SearchParamPresentationModel(
+fun ArticleCategory.toSearchParamPresentationModel() = SearchParamPresentationModel(
     if (isOnApi) label else null,
     if (!isOnApi) label else null,
     null,

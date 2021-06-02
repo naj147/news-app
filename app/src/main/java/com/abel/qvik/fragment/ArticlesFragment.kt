@@ -1,7 +1,6 @@
 package com.abel.qvik.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -70,18 +69,17 @@ class ArticlesFragment :
         when (viewState) {
             is ArticleListState.ArticlesLoaded -> {
                 articlesController.setData(
-                    viewState.pageOfNews?.articles?.map { it.toArticleModel() }, header,
+                    viewState.pageOfArticles?.articles?.map { it.toArticleModel() }, header,
                     false,
                     false
                 )
                 pageLoadingHandler.hasNextPage =
-                    viewState.resultsSoFar < (viewState.pageOfNews?.totalResults) ?: 0
+                    viewState.resultsSoFar < (viewState.pageOfArticles?.totalResults) ?: 0
                 if (viewState.resultsSoFar == 0) {
                     binding.recycleView.smoothScrollToPosition(0)
                 }
             }
             is ArticleListState.LoadingFailed -> {
-                Log.d("WTF", viewState.reason?.message ?: "WTF")
                 snackBar = Snackbar
                     .make(
                         requireView(),
@@ -99,7 +97,7 @@ class ArticlesFragment :
             }
 
             is ArticleListState.LoadingNextPage -> articlesController.setData(
-                viewState.pageOfNews?.articles?.map { it.toArticleModel() }, header,
+                viewState.pageOfArticles?.articles?.map { it.toArticleModel() }, header,
                 true,
                 false
             )

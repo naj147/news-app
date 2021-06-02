@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
-
 plugins {
     id("com.android.application")
     id("kotlin-android")
@@ -25,15 +23,24 @@ android {
     }
 
     buildTypes {
-        getByName("release"){
+        getByName("release") {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
 
     compileOptions {
         sourceCompatibility = AndroidSettings.sourceCompatibility
         targetCompatibility = AndroidSettings.targetCompatibility
+    }
+
+    testOptions {
+        animationsDisabled = true
+        unitTests.isReturnDefaultValues = true
+        unitTests.isIncludeAndroidResources = true
     }
 
     kotlinOptions {

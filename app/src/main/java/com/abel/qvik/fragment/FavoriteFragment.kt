@@ -46,7 +46,7 @@ class FavoriteFragment :
             is FavoriteCategoryState.LoadingFailed -> favoriteCategoryController.setData(
                 null, null, true
             )
-            FavoriteCategoryState.Uninitialized -> TODO()
+            FavoriteCategoryState.Uninitialized -> viewmodel.loadCategories()
         }
     }
 
@@ -57,6 +57,8 @@ class FavoriteFragment :
         super.onViewCreated(view, savedInstanceState)
         (activity as HomeActivity).showBottomNav(true)
         (activity as HomeActivity).supportActionBar?.show()
+        (activity as HomeActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        (activity as HomeActivity).supportActionBar?.setDisplayShowHomeEnabled(false)
         imageRenderer = (activity as HomeActivity).imageRenderer
         binding.recycleView.layoutManager = GridLayoutManager(requireContext(), 2)
         favoriteCategoryController.spanCount = 2

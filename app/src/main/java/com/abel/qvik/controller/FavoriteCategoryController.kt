@@ -1,7 +1,7 @@
 package com.abel.qvik.controller
 
 import android.view.View
-import com.abel.common.model.NewsCategory
+import com.abel.common.model.ArticleCategory
 import com.abel.qvik.core.ImageRenderer
 import com.abel.qvik.view.categoryCard
 import com.abel.qvik.view.loadingRow
@@ -11,10 +11,10 @@ import com.airbnb.epoxy.Typed3EpoxyController
 class FavoriteCategoryController(
     private val renderer: ImageRenderer?,
     private inline val retryClickListener: () -> Unit,
-    private val navigation: (newsCategory: NewsCategory) -> Unit
-) : Typed3EpoxyController<List<NewsCategory>, Boolean, Boolean>() {
+    private val navigation: (articleCategory: ArticleCategory) -> Unit
+) : Typed3EpoxyController<List<ArticleCategory>, Boolean, Boolean>() {
     override fun buildModels(
-        favoriteCategories: List<NewsCategory>?,
+        favoriteCategories: List<ArticleCategory>?,
         loading: Boolean?,
         failed: Boolean?
     ) {

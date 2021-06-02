@@ -1,7 +1,7 @@
 package com.abel.presentation.model
 
 import android.os.Parcelable
-import com.abel.common.model.NewsCategory
+import com.abel.common.model.ArticleCategory
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
@@ -12,4 +12,4 @@ data class HeaderModel(
 ) : Parcelable
 
 
-fun NewsCategory.toHeaderModel() = HeaderModel(label, imageResource, followers.toString())
+fun ArticleCategory.toHeaderModel() = HeaderModel(label, imageResource, followers.toString())

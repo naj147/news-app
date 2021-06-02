@@ -14,7 +14,7 @@ object Versions {
     const val coroutinesCore = "1.4.3"
     const val espresso = "3.3.0-alpha02"
     const val glide = "4.12.0"
-    const val junit = "4.13-beta-3"
+    const val junit = "4.12"
     const val koin = "3.0.2"
     const val kotlin = "1.4.32"
     const val lifecycle = "2.2.0-rc01"
@@ -32,7 +32,7 @@ object Versions {
 
 object Dependencies {
     const val appCompat = "androidx.appcompat:appcompat:${Versions.androidX}"
-    const val cardView = "androidx.cardview:cardview:${Versions.cardView}"
+    const val kotlinAllOpen = "org.jetbrains.kotlin:kotlin-allopen:${Versions.kotlin}"
     const val constraintLayout =
         "androidx.constraintlayout:constraintlayout:${Versions.constraintlayout}"
     const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtx}"

@@ -1,7 +1,7 @@
 package com.abel.presentation.model
 
 import android.os.Parcelable
-import com.abel.common.model.News
+import com.abel.common.model.Article
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
@@ -14,6 +14,6 @@ data class ArticleModel(
     val category: String
 ) : Parcelable
 
-fun News.toArticleModel() = ArticleModel(
+fun Article.toArticleModel() = ArticleModel(
     title, source, imageUrl, publishedDate, content, category
 )

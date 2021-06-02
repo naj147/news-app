@@ -1,10 +1,7 @@
 package com.abel.remote
 
-import com.abel.common.BOOLEAN_DEBUG
-import com.abel.common.INTERCEPTOR_LOGGING
-import com.abel.common.INTERCEPTOR_NEWS_API_PARAMETERS
-import com.abel.common.NEWS_API_OKHTTP_CLIENT
-import com.abel.data.NewsRemoteDataSource
+import com.abel.common.*
+import com.abel.data.ArticlesRemoteDataSource
 import com.abel.remote.NetworkConst.BASE_URL
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -20,8 +17,8 @@ private const val IO_CONTEXT = "TAG_IO_CONTEXT"
 
 val remoteModule = module {
 
-    factory<NewsRemoteDataSource> {
-        NewsRemoteDataSourceImpl(get(), get(named(IO_CONTEXT)))
+    factory<ArticlesRemoteDataSource> {
+        ArticlesRemoteDataSourceImpl(get(), get(named(IO_CONTEXT)))
     }
 
     factory<CoroutineContext>(named(IO_CONTEXT)) { Dispatchers.IO }
@@ -29,7 +26,8 @@ val remoteModule = module {
     single(named(NEWS_API_OKHTTP_CLIENT)) {
         RemoteFactory.buildOkHttpClient(
             listOf(get(named(INTERCEPTOR_NEWS_API_PARAMETERS))),
-            listOf(get(named(INTERCEPTOR_LOGGING)))
+            listOf(get(named(INTERCEPTOR_LOGGING))),
+            get(named(OKHTTP_CLIENT_CACHE))
         )
     }
 

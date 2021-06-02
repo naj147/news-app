@@ -1,12 +1,11 @@
 package com.abel.qvik.activity
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
+import androidx.navigation.ui.setupWithNavController
 import com.abel.qvik.R
 import com.abel.qvik.core.ImageRenderer
 import com.abel.qvik.databinding.ActivityHomeBinding
@@ -20,20 +19,10 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
-
-    }
-
-    override fun onPostCreate(
-        savedInstanceState: Bundle?,
-        persistentState: PersistableBundle?
-    ) {
-        super.onPostCreate(savedInstanceState, persistentState)
-        val appBarConfiguration =
-            AppBarConfiguration(setOf(R.id.splashFragment, R.id.favoriteFragment))
-        setupActionBarWithNavController(
-            findNavController(R.id.nav_host_fragment),
-            appBarConfiguration
-        )
+        val navController =
+            (supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment).navController
+        NavigationUI.setupWithNavController(binding.bottomNav, navController);
+        binding.toolbar.setupWithNavController(navController)
     }
 
     internal fun showBottomNav(show: Boolean) {

@@ -3,10 +3,10 @@ package com.abel.common.model
 import java.util.*
 
 data class SearchParam(
-    val category: String?,
-    val query: String?,
+    val category: String? = null,
+    val query: String? = null,
     val sortType: SortType? = SortType.RELEVANCY,
-    val page: Int?
+    val page: Int? = null
 )
 
 enum class SortType(sort: String) {

@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/action_recents"
+        android:id="@id/favoriteFragment"
         android:enabled="true"
         android:title="@string/following"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/action_favorites"
+        android:id="@id/emptyFragment1"
         android:enabled="true"
         android:title="@string/popular"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/action_add"
+        android:id="@id/emptyFragment2"
         android:enabled="true"
         android:title="@string/explore"
         app:showAsAction="ifRoom" />

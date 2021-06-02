@@ -1,8 +1,8 @@
 package com.abel.domain.repository
 
-import com.abel.common.model.NewsCategory
+import com.abel.common.model.ArticleCategory
 
 interface CategoryRepository {
     suspend fun getCategories(
-    ): List<NewsCategory>?
+    ): List<ArticleCategory>?
 }

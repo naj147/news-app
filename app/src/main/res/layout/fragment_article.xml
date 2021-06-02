@@ -38,7 +38,7 @@
             style="@style/TitleChannel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/medium_margin"
+            android:layout_margin="@dimen/large_margin"
             app:layout_constraintBottom_toBottomOf="@id/overlay"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -46,14 +46,12 @@
 
         <TextView
             android:id="@+id/articlePublisher"
-            style="@style/BodyS"
-            android:layout_width="@dimen/size_l"
+            style="@style/Body"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/large_margin"
-            android:drawablePadding="@dimen/spacing_2dp"
+            android:drawablePadding="@dimen/spacing_xxs"
             android:ellipsize="end"
-            android:scaleX="1.5"
-            android:scaleY="1.5"
             app:drawableStartCompat="@drawable/icon_list_source"
             app:layout_constraintLeft_toLeftOf="@+id/categoryImg"
             app:layout_constraintTop_toBottomOf="@id/categoryImg"
@@ -61,26 +59,25 @@
 
         <TextView
             android:id="@+id/articleTime"
-            style="@style/BodyS"
+            style="@style/Body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/large_margin"
-            android:drawablePadding="@dimen/spacing_2dp"
+            android:drawablePadding="@dimen/spacing_xxs"
             android:ellipsize="end"
-            android:scaleX="1.5"
-            android:scaleY="1.5"
             app:drawableStartCompat="@drawable/icon_list_time"
             app:layout_constraintLeft_toRightOf="@id/articlePublisher"
-            app:layout_constraintTop_toBottomOf="@id/categoryImg"
-            />
+            app:layout_constraintTop_toBottomOf="@id/categoryImg" />
 
         <TextView
-            style="@style/TitleCategoryIn"
             android:id="@+id/articleCategory"
+            style="@style/TitleCategoryIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/large_margin"
             android:ellipsize="end"
+            android:scaleX="1.2"
+            android:scaleY="1.2"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/categoryImg"
             tools:text="bla bla bla" />
@@ -91,6 +88,7 @@
             android:layout_height="@dimen/spacing_2dp"
             android:layout_marginTop="@dimen/xSmall_margin"
             android:background="@android:color/darker_gray"
+            android:scaleY="1.2"
             app:layout_constraintBottom_toBottomOf="@id/articleCategory"
             app:layout_constraintLeft_toLeftOf="@id/articleCategory"
             app:layout_constraintRight_toRightOf="@id/articleCategory"
@@ -101,8 +99,8 @@
             style="@style/Description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/medium_margin"
-            app:layout_constraintTop_toBottomOf="@id/articleTime" />
+            android:layout_margin="@dimen/large_margin"
+            app:layout_constraintTop_toBottomOf="@id/articlePublisher" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/animationView"
