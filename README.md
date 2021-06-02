@@ -3,40 +3,40 @@
 Introduction
 ------------
 
-The application is written fully in Kotlin and uses Clean Architecture based on MVVM and Repository patterns. It also implements MVI architecture in it’s Presentation layer, one of the newest architecture patterns for Android, inspired by the unidirectional and cyclical nature of the Cycle.js framework.
+- The application is written fully in Kotlin and uses Clean Architecture based on MVVM and Repository patterns. It also implements MVI architecture in it’s Presentation layer, one of the newest architecture patterns for Android, inspired by the unidirectional and cyclical nature of the Cycle.js framework.
 
-Android Jetpack components are used to sustain the architectures, some components that are used: ViewModel, MutableLiveData, Lifecycles, Navigation component, BottomNavCom...
+- Android Jetpack components are used to sustain the architectures, some components that are used: ViewModel, MutableLiveData, Lifecycles, Navigation component, BottomNavCom...
 
-The application gets the data from NewsApi, using OKHttp, Retrofit and Moshi to parse it. OkHttp cache implemented. 
+- The application gets the data from NewsApi, using OKHttp, Retrofit and Moshi to parse it. OkHttp cache implemented. 
 
-Pagination was also made utilising a custom implementation of the Epoxy component.
+- Pagination was also made utilising a custom implementation of the Epoxy component.
 
-Kotlin Coroutines are used for background tasks and multitasking.
+- Kotlin Coroutines are used for background tasks and multitasking.
 
-Koin is used for dependency injection.
+- Koin is used for dependency injection.
 
-Lottie is used for animations.
+- Lottie is used for animations.
 
-The project hosts 9 modules each serving a distinguished purpose (Figured from the name).
+- The project hosts 9 modules each serving a distinguished purpose (Figured from the name).
 
-The main app hosts one activity and 5 fragments connected with the Jetpack navigation component.
+- The main app hosts one activity and 5 fragments connected with the Jetpack navigation component.
 
 
 Getting Started
 ---------------
-Getting Android Studio IDE
-Import project
-Run Gradle Wrappers / Project Tasks `gradlew build` `
-* gradlew test` - and for tests run
+- Getting Android Studio IDE
+- Import project
+- Run Gradle Wrappers / Project Tasks `gradlew build` `
+* `gradlew test` - and for tests run
 
 Hardware And Operating system (Check the AndroidSettings.kt file in BuildSrc Module)
 --------------
 
-Android Studio 4.1.2
-MacOS Mojave 10.14.5
-Minimum Android OS Supported 6.0
-Android OS Targeted 11
-Kotlin version 1.4.32
+- Android Studio 4.1.2
+- MacOS Mojave 10.14.5
+- Minimum Android OS Supported 6.0
+- Android OS Targeted 11
+- Kotlin version 1.4.32
 
 Libraries (Check the Dependency.kt file in BuildSrc Module)
 ---------------
